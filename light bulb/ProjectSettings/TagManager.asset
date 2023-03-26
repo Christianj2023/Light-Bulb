@@ -8,10 +8,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
@@ -43,4 +43,25 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 4157442367
+    locked: 0
+  - name: Ground
+    uniqueID: 2597983165
+    locked: 0
+  - name: Obstacles
+    uniqueID: 3200339123
+    locked: 0
+  - name: Enemies
+    uniqueID: 1203190793
+    locked: 0
+  - name: Recharge
+    uniqueID: 4238346217
+    locked: 0
+  - name: Collectibles
+    uniqueID: 2446017685
+    locked: 0
+  - name: Darkness
+    uniqueID: 1157122899
     locked: 0
