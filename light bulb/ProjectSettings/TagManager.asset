@@ -56,12 +56,12 @@ TagManager:
   - name: Enemies
     uniqueID: 1203190793
     locked: 0
-  - name: Recharge
-    uniqueID: 4238346217
-    locked: 0
   - name: Collectibles
     uniqueID: 2446017685
     locked: 0
   - name: Darkness
     uniqueID: 1157122899
+    locked: 0
+  - name: Recharges
+    uniqueID: 4238346217
     locked: 0

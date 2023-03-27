@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sightBehavior : MonoBehaviour
+public class SightBehavior : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject firefly;
     public GameObject darkness;
 
     SpriteRenderer sprite;
@@ -20,7 +20,7 @@ public class sightBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        firefly = GameObject.Find("Firefly");
         darkness = GameObject.Find("Darkness");
         sprite = darkness.GetComponent<SpriteRenderer>();
 
@@ -36,28 +36,30 @@ public class sightBehavior : MonoBehaviour
 
     void Update()
     {  
-        transform.position = player.transform.position;
+        transform.position = firefly.transform.position;
 
         if(radius > 1f)
         {
-            radius -= Time.deltaTime;
-        }
-        else
-        {
-            radius = 10f;
+            radius -= Time.deltaTime / 2;
         }
         
         setOpacity(opacity);
         setRadius(radius);
     }
 
-    void setOpacity(float newOpacity)
+    public void setOpacity(float newOpacity)
     {
         sprite.color = new Color(0, 0, 0, newOpacity);
     }
 
-    void setRadius(float newRadius)
+    public void setRadius(float newRadius)
     {
         transform.localScale = new Vector3(newRadius * 2, newRadius * 2, 1);
+    }
+
+    public void resetDarkness()
+    {
+        radius = initialRadius;
+        opacity = initialOpacity;
     }
 }

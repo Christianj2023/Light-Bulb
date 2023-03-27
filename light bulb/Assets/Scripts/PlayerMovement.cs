@@ -32,8 +32,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 playerSize;
     Vector2 boxSize;
 
-    private Vector2 initialPosition;
-    private float initialRotation;
+    public Vector2 initialPosition;
     
     // Start is called before the first frame update
     void Start()
@@ -48,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed = 0;
 
         initialPosition = rb.position;
-        initialRotation = rb.rotation;
     }
 
     // Update is called once per frame
@@ -82,7 +80,6 @@ public class PlayerMovement : MonoBehaviour
     {
         jump();
         move();
-        if(rb.position.y < -8) respawn();
     }
 
     void move()
@@ -153,13 +150,6 @@ public class PlayerMovement : MonoBehaviour
         onGround = (Physics2D.OverlapBox(boxCenter, boxSize, 0.05f, mask) != null);
 
         return onGround;
-    }
-
-    void respawn(){
-        rb.position = initialPosition;
-        rb.rotation = initialRotation;
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = 0f;
     }
     
 }
