@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Animator animator;
     Rigidbody2D rb;
     public float horizontalValue;
     
@@ -55,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalValue = Input.GetAxisRaw("Horizontal");
 
         currentSpeed = rb.velocity.x;
+        animator.SetFloat("Speed", Mathf.Abs(currentSpeed));
 
         if(checkGrounded() && (Input.GetButtonDown("Jump") || bufferLeftSeconds > 0))
         {

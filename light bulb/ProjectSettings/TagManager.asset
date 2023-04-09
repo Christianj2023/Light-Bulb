@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tutorialnpc
   - spawn
+  - FirstNpc
   layers:
   - Default
   - TransparentFX
