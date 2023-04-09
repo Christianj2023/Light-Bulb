@@ -11,6 +11,8 @@ public class SightBehavior : MonoBehaviour
 
     Color color = Color.clear;
 
+    public float startingRadius = 4f;
+
     public float initialOpacity = 0.5f;
     public float initialRadius = 10f;
 
@@ -23,15 +25,14 @@ public class SightBehavior : MonoBehaviour
         firefly = GameObject.Find("Firefly");
         darkness = GameObject.Find("Darkness");
         sprite = darkness.GetComponent<SpriteRenderer>();
-
-        opacity = initialOpacity;
-        radius = initialRadius;
+        radius = startingRadius;
+        opacity = 1f;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-    
+        
     }
 
     void Update()
@@ -40,7 +41,7 @@ public class SightBehavior : MonoBehaviour
 
         if(radius > 1f)
         {
-            radius -= Time.deltaTime / 2;
+            radius -= Time.deltaTime / 3;
         }
         
         setOpacity(opacity);

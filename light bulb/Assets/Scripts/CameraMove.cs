@@ -53,7 +53,8 @@ public class CameraMove : MonoBehaviour
         
         distanceX = player.transform.position.x - cameraX;
 
-        targetX = Mathf.Clamp(cameraX, player.transform.position.x + followLeftBound, player.transform.position.x + followRightBound);
+        targetX = player.transform.position.x + 3;
+        //Mathf.Clamp(cameraX, player.transform.position.x + followLeftBound, player.transform.position.x + followRightBound);
         cameraX = Mathf.SmoothDamp(cameraX, targetX, ref cameraSpeedX, .3f);
 
         //cameraX = Mathf.Clamp(cameraX, player.transform.position.x + playerLeftBound, player.transform.position.x + playerRightBound);
