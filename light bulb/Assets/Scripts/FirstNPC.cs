@@ -23,7 +23,7 @@ public class FirstNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown && playerisClose)
+        if (Input.GetKey(KeyCode.E) && playerisClose)
         {
             if (dialoguePanel.activeInHierarchy)
             {
