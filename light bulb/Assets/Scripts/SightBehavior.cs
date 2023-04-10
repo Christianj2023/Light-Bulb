@@ -16,6 +16,8 @@ public class SightBehavior : MonoBehaviour
     public float initialOpacity = 0.5f;
     public float initialRadius = 10f;
 
+    public float minimumRadius = 3f;
+
     public float opacity;
     public float radius;
 
@@ -39,7 +41,7 @@ public class SightBehavior : MonoBehaviour
     {  
         transform.position = firefly.transform.position;
 
-        if(radius > 1f)
+        if(radius > minimumRadius)
         {
             radius -= Time.deltaTime / 3;
         }

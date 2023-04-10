@@ -13,6 +13,8 @@ public class Respawn : MonoBehaviour
     public GameObject rechargeParent;
     public GameObject collectibleParent;
     
+    public float outOfBoundsY = -8f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,10 @@ public class Respawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(transform.position.y < outOfBoundsY)
+        {
+            respawn();
+        }
     }
 
     public void respawn()

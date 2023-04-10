@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     bool onGround;
     bool isJumping;
 
-    public float maxSpeed = 7.5f;
+    public float maxSpeed = 5f;
     public float accel = 1f;
     public float decel = 0.5f;
 
@@ -76,12 +76,15 @@ public class PlayerMovement : MonoBehaviour
         {
             bufferLeftSeconds = Mathf.Max(0f, bufferLeftSeconds - Time.deltaTime);
         }
+
+        jump();
+        move();
     }
 
     void FixedUpdate()
     {
-        jump();
-        move();
+        //jump();
+        //move();
     }
 
     void move()

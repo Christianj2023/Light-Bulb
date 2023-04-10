@@ -47,7 +47,7 @@ public class CameraMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         Debug.Log($"{player.transform.position.x}");
         
@@ -55,7 +55,7 @@ public class CameraMove : MonoBehaviour
 
         targetX = player.transform.position.x + 3;
         //Mathf.Clamp(cameraX, player.transform.position.x + followLeftBound, player.transform.position.x + followRightBound);
-        cameraX = Mathf.SmoothDamp(cameraX, targetX, ref cameraSpeedX, .3f);
+        cameraX = Mathf.SmoothDamp(cameraX, targetX, ref cameraSpeedX, .05f);
 
         //cameraX = Mathf.Clamp(cameraX, player.transform.position.x + playerLeftBound, player.transform.position.x + playerRightBound);
         
