@@ -43,7 +43,7 @@ public class SightBehavior : MonoBehaviour
 
         if(radius > minimumRadius)
         {
-            radius -= Time.deltaTime / 3;
+            radius -= Time.deltaTime /2;
         }
         
         setOpacity(opacity);

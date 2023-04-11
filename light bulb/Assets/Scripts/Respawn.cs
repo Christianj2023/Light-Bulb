@@ -12,8 +12,15 @@ public class Respawn : MonoBehaviour
 
     public GameObject rechargeParent;
     public GameObject collectibleParent;
+    public GameObject enemyParent;
     
     public float outOfBoundsY = -8f;
+
+    public List<Transform> recharges = new List<Transform>();
+
+    public Vector3 spawnPoint;
+
+    int index = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +33,20 @@ public class Respawn : MonoBehaviour
 
         rechargeParent = GameObject.Find("Recharges");
         collectibleParent = GameObject.Find("Collectibles");
+        enemyParent = GameObject.Find("Enemies");
+
+        spawnPoint = playerMovementScript.initialPosition;
+
+        foreach(Transform recharge in rechargeParent.transform)
+        {
+            recharges.Add(recharge);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y < outOfBoundsY)
+        if(player.transform.position.y < outOfBoundsY)
         {
             respawn();
         }
@@ -43,6 +58,7 @@ public class Respawn : MonoBehaviour
         resetPlayer();
         resetCollectibles();
         resetRecharges();
+        resetEnemies();
     }
 
     void resetDarkness()
@@ -52,7 +68,8 @@ public class Respawn : MonoBehaviour
 
     void resetPlayer()
     {
-        player.transform.position = playerMovementScript.initialPosition;
+        player.transform.position = spawnPoint;
+
         player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 
@@ -70,5 +87,19 @@ public class Respawn : MonoBehaviour
         {
             recharge.gameObject.SetActive(true);
         }
+    }
+
+    void resetEnemies()
+    {
+        foreach(Transform enemy in enemyParent.transform)
+        {
+            enemy.GetComponent<EnemyMove>().reset();
+            Debug.Log("naerisot");
+        }
+    }
+
+    public void setSpawn(Vector3 rechargePosition)
+    {
+        spawnPoint = rechargePosition;
     }
 }

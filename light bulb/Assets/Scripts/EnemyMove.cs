@@ -7,6 +7,8 @@ public class EnemyMove : MonoBehaviour
     public float leftBound;
     public float rightBound;
 
+    public float startPosition;
+
     public float enemySpeed = 3f;
 
     public bool movingRight = true;
@@ -18,6 +20,8 @@ public class EnemyMove : MonoBehaviour
     {
         leftBound = transform.position.x - 5;
         rightBound = transform.position.x + 5;
+
+        startPosition = transform.position.x;
     }
 
     // Update is called once per frame
@@ -38,13 +42,26 @@ public class EnemyMove : MonoBehaviour
         {
             movingRight = false;
             transform.Rotate(0f, 180f, 0f);
+            tempX = rightBound;
         }
         else if(tempX < leftBound)
         {
             movingRight = true;
             transform.Rotate(0f, -180f, 0f);
+            tempX = leftBound;
         }
 
         transform.position = new Vector3(tempX, transform.position.y, 0);
+    }
+
+    public void reset()
+    {
+        if(!movingRight)
+        {
+            movingRight = true;
+            transform.Rotate(0f, -180f, 0f);
+        }
+
+        transform.position = new Vector3(startPosition, transform.position.y, 0);
     }
 }
